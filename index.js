@@ -23,8 +23,8 @@ window.onload = function () {
             const json = JSON.parse(message.data);
             executeSound(json.audioId);
         },
-        onError: () => {
-            console.log("[Marli Soundboard] websocket error!");
+        onError: (e) => {
+            console.log("[Marli Soundboard] websocket error!", e);
         }
     };
 
