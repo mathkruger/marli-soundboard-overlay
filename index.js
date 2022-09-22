@@ -12,17 +12,17 @@ window.onload = function () {
     }
 
     const webSocketMethods = {
-        onOpen = () => {
+        onOpen: () => {
             console.log("[Marli Soundboard] connection opened");
         },
-        onClose = () => {
+        onClose: () => {
             console.log("[Marli Soundboard] connection closed");
         },
-        onMessage = (message) => {
+        onMessage: (message) => {
             const json = JSON.parse(message.data);
             executeSound(json.audioId);
         },
-        onError = () => {
+        onError: () => {
             console.log("[Marli Soundboard] websocket error!");
         }
     };
