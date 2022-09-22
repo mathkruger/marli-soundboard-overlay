@@ -34,6 +34,6 @@ const connectToWebSocket = (wsUrl) => {
     webSocket.onerror = webSocketMethods.onError;
 };
 
-Window.initMarliSoundboard = (wsUrl) => {
+window.initMarliSoundboard = function(wsUrl) {
     connectToWebSocket(wsUrl);
 }
