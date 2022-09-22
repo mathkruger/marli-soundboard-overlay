@@ -28,15 +28,15 @@ window.onload = function () {
         }
     };
 
-    const connectToWebSocket = (wsUrl) => {
+    const connectToWebSocket = (wsUrl, sso) => {
         const webSocket = new WebSocket(wsUrl);
-        webSocket.onopen = webSocketMethods.onOpen;
+        webSocket.onopen = () => { webSocketMethods.onOpen(sso) };
         webSocket.onclose = webSocketMethods.onClose;
         webSocket.onmessage = webSocketMethods.onMessage;
         webSocket.onerror = webSocketMethods.onError;
     };
 
-    window.initMarliSoundboard = function (wsUrl) {
-        connectToWebSocket(wsUrl);
+    window.initMarliSoundboard = function (wsUrl, sso) {
+        connectToWebSocket(wsUrl, sso);
     }
 }
