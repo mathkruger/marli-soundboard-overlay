@@ -12,7 +12,7 @@ window.onload = function () {
     }
 
     const webSocketMethods = {
-        onOpen: (sso) => {
+        onOpen: (webSocket, sso) => {
             webSocket.send(JSON.stringify({ header: "sso", data: { ticket: sso } }));
             console.log("[Marli Soundboard] connection opened");
         },
@@ -30,7 +30,7 @@ window.onload = function () {
 
     const connectToWebSocket = (wsUrl, sso) => {
         const webSocket = new WebSocket(wsUrl);
-        webSocket.onopen = () => { webSocketMethods.onOpen(sso) };
+        webSocket.onopen = () => { webSocketMethods.onOpen(webSocket, sso) };
         webSocket.onclose = webSocketMethods.onClose;
         webSocket.onmessage = webSocketMethods.onMessage;
         webSocket.onerror = webSocketMethods.onError;
