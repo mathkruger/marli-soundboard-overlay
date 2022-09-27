@@ -45,6 +45,30 @@ const executeSound = (soundName) => {
     }
 };
 
+const stopSound = () => {
+    let audio = document.querySelector("#app");
+    audio.innerHTML = '';
+};
+
+const pausePlayAudio = () => {
+    let audio = document.querySelector("#app");
+    const player = audio.querySelector("audio");
+
+    if (player.paused) {
+        player.play();
+    }
+    else {
+        player.pause();
+    }
+};
+
+const setVolume = (volume) => {
+    let audio = document.querySelector("#app");
+    const player = audio.querySelector("audio");
+
+    player.volume = volume / 100;
+};
+
 window.initMarliSoundboard = function () {
     listenToWebSocket(({ data }) => {
         data.text().then(text => {
