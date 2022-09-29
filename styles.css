@@ -1,0 +1,10 @@
+#marli-soundboard-container {
+    position: absolute;
+    bottom: 60px;
+    right: 5px;
+    min-width: 200px;
+    padding: 10px;
+    background: white;
+    border: 1px solid;
+    color: black !important;
+}
