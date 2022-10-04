@@ -97,14 +97,22 @@ const setVolume = (volume) => {
 
 const createContainers = () => {
     const app = document.querySelector("#marli-soundboard-container");
+    app.classList.add("d-flex overflow-hidden nitro-notification-bubble rounded flex-column club-gift".split(" "));
+
+    app.innerHTML += `<div class="d-inline text-black">Marli Soundboard</div>`;
     app.innerHTML += `<div class="player"></div>`;
     app.innerHTML += `<div class="player-information"></div>`;
-    app.innerHTML += `<div class="player-volume">
-        Volume: <br/>
-        <input class="volume-control" onchange="setVolume(this.value)" value="1" type="range" min="0" max="1" step="0.1" />
+    app.innerHTML += `
+    <div class="player-volume d-flex flex-column gap-1">
+        <div class="d-inline text-black">Volume</div>
+        <div class="d-flex gap-1 align-items-center">
+            <i class="fa-volume-low text-muted"></i>
+            <input class="volume-control" onchange="setVolume(this.value)" value="1" type="range" min="0" max="1" step="0.1" />
+            <i class="fa-volume-high"></i>
+        </div>
     </div>`;
 
-    app.setAttribute("style", "display: none");
+    app.setAttribute("style", "display: none !important");
 }
 
 window.initMarliSoundboard = function () {
